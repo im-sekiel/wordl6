@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<%# <meta name="viewport" content="width=device-width, initial-scale=1"> %>
+	<link rel="stylesheet" type="text/css" href="/stylesheets/reset.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/app.css">
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700;800;900&family=Libre+Franklin:ital,wght@0,300;0,900;1,700&display=swap" rel="stylesheet">
+
+	<title>Wordl6</title>
+</head>
+<body class="container">
+
+	<header class="header">
+		<h1>Wordl6</h1>
+	</header>
+
+	<section class="stats">
+		<h3 class="miniheader">STATS</h3>
+		<p class="gamesplayed">Games Played:</p> <p class="gamesplayeda"><%= games_played %></p>
+		<p class="winrate">Win Rate: </p> <p class="winratea"><%= "#{win_rate_percent}%" %></p>
+		<p class="currentstreak">Current Streak: </p><p class="currentstreaka"><%= session[:streak] %></p>
+		<p class="maxstreak">Max Streak: </p><p class="maxstreaka"><%= session[:maxstreak] %></p>
+		<p class="averageguess">Average Guess: </p><p class="averageguessa"><%= "#{format("%.2f", average_guess)}" %></p>
+
+		<% if session[:message] %>
+			<p class="<%= congrats(session[:message]) %>"><%= session.delete(:message) %></p>
+		<% end %>
+	</section>
+
+	<main class="main"> <%#The main game%>
+			<% num_of_squares.times do |index| %>
+				<% current_letter = session[:current_lineup][index] %>
+				<% color = choose_color(current_letter, session[:current_word], index) %>
+				<div class="square <%= color %>">
+					<% if is_nil?(current_letter) %>
+						<p></p>
+					<% else %>
+						<p> <%= current_letter %> </p>
+					<% end %>
+				</div>
+			<% end %>
+	</main>
+
+	<section class="form">
+		<% unless session[:next] %>
+		<form action="/word" method="post">
+			<input type="text" name="answer" minlength="6" maxlength="6">
+			<div>
+				<button type="submit">Enter</button>
+			</div>
+		</form>
+		<% else %>
+		<form action="/next" method="post">
+			<div>
+				<button type="submit">Enter</button>
+			</div>
+		</form>
+		<% end %>
+	</section>
+
+	<section class="keyboard">
+		<div class="topkeys">
+			<% %w(Q W E R T Y U I O P).each do |key| %>
+				<div class="keys <%= key_color(key) %>">
+					<p><%= key %></p>
+				</div>
+			<% end %>
+		</div>
+		<div class="midkeys">
+			<% %w(A S D F G H J K L).each do |key| %>
+				<div class="keys <%= key_color(key) %>">
+					<p><%= key %></p>
+				</div>
+			<% end %>
+		</div>
+		<div class="botkeys">
+			<% %w(Z X C V B N M).each do |key| %>
+				<div class="keys <%= key_color(key) %>">
+					<p><%= key %></p>
+				</div>
+			<% end %>
+		</div>
+	</section>
+
+</body>
+</html>

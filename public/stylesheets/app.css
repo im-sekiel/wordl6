@@ -1,0 +1,253 @@
+html {
+	font-size: 16pt;
+	font-family: 'Barlow', sans-serif;
+	font-family: 'Libre Franklin', sans-serif;
+}
+
+.container {
+	display: grid;
+	grid-template-columns: 50px auto 415px auto 50px;
+	grid-template-rows: 100px 250px auto 100px 300px; /*100px = header, auto = main*/
+
+}
+
+.header {
+	grid-column: 3 / 4;
+	grid-row: 1 / 2;
+	justify-self: center;
+	align-self: center;
+}
+
+.stats {
+	grid-column: 3 / 4;
+	grid-row: 2 / 3;
+	font-size: .8em;
+	padding: 20px;
+	display: grid;
+	grid-template-rows: repeat(6, 1fr) 50px;
+	grid-template-columns: repeat(6, 2fr);
+}
+
+.miniheader {
+	grid-row: 1/2;
+	grid-column: 1/7;
+}
+
+.gamesplayed {
+	grid-row: 2/3;
+	grid-column: 1/4;
+}
+
+.gamesplayeda {
+	grid-row: 2/3;
+	grid-column: 4/7;
+}
+
+.winrate {
+	grid-row: 3/4;
+	grid-column: 1/4;
+}
+
+.winratea {
+	grid-row: 3/4;
+	grid-column: 4/7;
+}
+
+.currentstreak {
+	grid-row: 4/5;
+	grid-column: 1/4;
+}
+
+.currentstreaka {
+	grid-row: 4/5;
+	grid-column: 4/7;
+}
+
+.maxstreak {
+	grid-row: 5/6;
+	grid-column: 1/4;
+}
+
+.maxstreaka {
+	grid-row: 5/6;
+	grid-column: 4/7;
+}
+
+.averageguess {
+	grid-row: 6/7;
+	grid-column: 1/4;
+}
+
+.averageguessa {
+	grid-row: 6/7;
+	grid-column: 4/7;
+}
+
+.main {
+	grid-column: 3 / 4;
+	grid-row: 3 / 4;
+	display: grid;
+	grid-template-columns: repeat(6, 1fr);
+	grid-template-rows: repeat(7, 1fr);
+	gap: 5px 1px;
+	justify-items: center;
+	align-items: center;
+	padding: 20px;
+}
+
+.square {
+	height: 60px;
+	width: 60px;
+	background-color: white;
+	grid-column: 1 span;
+	display: grid;
+	place-self: center;
+}
+
+.form {
+	grid-column: 3/4;
+	grid-row: 4/5;
+	align-self: center;
+	justify-self: center;
+}
+
+.keyboard {
+	grid-column: 2/5;
+	grid-row: 5/6;
+	display: grid;
+	grid-template-rows: 2fr 1fr 2fr;
+	justify-self: center;
+}
+
+.topkeys {
+	grid-row: 1/2;
+	display: grid;
+	grid-template-columns: repeat(10, 45px);
+	align-self: end;
+	justify-self: center;
+}
+
+.midkeys {
+	grid-row: 2/3;
+	display: grid;
+	grid-template-columns: repeat(9, 45px);
+	margin: .2em 0;
+	justify-self: center;
+}
+
+.botkeys {
+	grid-row: 3/4;
+	display: grid;
+	grid-template-columns: repeat(7, 45px);
+	align-self: start;
+	justify-self: center;
+}
+
+.keys {
+	height: 60px;
+	width: 40px;
+	background-color: #e0e0e0;
+	grid-column: 1 span;
+	display: grid;
+	place-self: center;
+}
+
+.error {
+	background-color: #FF4343;
+	color: white;
+	width: 70%;
+	height: 30px;
+	display: grid;
+	text-align: center;
+	margin: auto;
+	margin-top: 30px;
+	border-radius: .2em;
+	line-height: 20px;
+	grid-row: 7/8;
+	grid-column: 1/7;
+}
+
+.congrats {
+	background-color: green;
+	color: white;
+	width: 70%;
+	height: 50px;
+	display: grid;
+	text-align: center;
+	margin: auto;
+	margin-top: 30px;
+	border-radius: .2em;
+	line-height: 20px;
+	grid-row: 7/8;
+	grid-column: 1/7;
+}
+
+div.green {
+	background-color: #24a84a;
+}
+
+div.yellow {
+	background-color: #c0a62f;
+}
+
+div.gray {
+	background-color: #787878;
+}
+
+div.none {
+	border: solid #d1d1d1 .1em;
+}
+
+input {
+	text-align: center;
+}
+
+section.stats h3 {
+	padding-bottom: 5px;
+	font-weight: 400;
+	text-decoration: underline;
+}
+
+section.stats p {
+	padding: 4px 0;
+}
+
+div.square p {
+	place-self: center;
+	font-weight: 900;
+}
+
+div.keys p {
+	place-self: center;
+	font-weight: 900;
+	color: black;
+}
+
+div.keys {
+	border-radius: .2em;
+}
+
+section.form div {
+	display: grid;
+	padding: 0 2em;
+	justify-self: center;
+	margin-top: 10px;
+}
+
+section.form button {
+	border-radius: .2em;
+	width: 100px;
+}
+
+h1 {
+	font-size: 1.6em;
+	font-weight: 900; /* Black */
+}
+
+h3 {
+	text-align: center;
+}
+
+div.green p, div.yellow p, div.gray p {
+	color: white;
+}
